@@ -10,6 +10,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../index'
 import Loader from './Loader';
+import ErrorComponent from './ErrorComponent'
 
 const Exchanges = () => {
     const [exchanges, setExchanges] = useState([]);
@@ -29,6 +30,7 @@ const Exchanges = () => {
         fetchExchange();
     }, [])
 
+    if (error) return <ErrorComponent message={"Error while fetching Exchange!"} />
     return (
         <Container maxW={"container.xl"}>
             {loading ? (<Loader />) : (<>
