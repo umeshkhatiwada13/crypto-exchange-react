@@ -1,13 +1,9 @@
 import {
     Button,
     Container,
-    Heading,
     HStack,
-    Image,
     Radio,
     RadioGroup,
-    Text,
-    VStack,
 } from "@chakra-ui/react";
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'

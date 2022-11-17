@@ -6,11 +6,8 @@ import {
     Text,
     VStack,
 } from "@chakra-ui/react";
-import axios from 'axios'
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { BASE_URL } from '../index'
-import Loader from './Loader';
-import ErrorComponent from './ErrorComponent'
 import { Link } from "react-router-dom";
 
 const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "$" }) => (
@@ -43,4 +40,4 @@ const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "$" }) => (
     </Link>
 );
 
-export default CoinCard
+export default CoinCard;
