@@ -4,6 +4,8 @@ import {
     Heading,
     HStack,
     Image,
+    Radio,
+    RadioGroup,
     Text,
     VStack,
 } from "@chakra-ui/react";
@@ -20,7 +22,7 @@ const Coins = () => {
     const [error, setError] = useState(false);
     const [page, setPage] = useState(1);
     const [currency, setCurrency] = useState("usd")
-    const currencySymbol = currency === "cad" ? "c$" : currency === "eur" ? "€" : "$";
+    const currencySymbol = currency === "cad" ? "C$" : currency === "eur" ? "€" : "$";
     const btns = new Array(132).fill(1);
 
     const changePage = (page) => {
@@ -44,32 +46,42 @@ const Coins = () => {
     if (error) return <ErrorComponent message={"Error while fetching Coins!"} />
     return (
         <Container maxW={"container.xl"}>
-            {loading ? (<Loader />) : (<>
-                <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
-                    {
-                        coins.map((i) => (
-                            <CoinCard id={i.id} key={i.id}
-                                name={i.name} img={i.image}
-                                price={i.current_price} symbol={i.symbol}
-                                url={i.url} currencySymbol={currencySymbol} />
-                        ))
-                    }
-                </HStack>
-                <HStack w={"full"} overflowX={"auto"} p={"8"}>
-                    {
-                        btns.map((item, index) => (
-                            <Button
-                                bgColor={"blackAlpha.900"}
-                                color={"white"}
-                                onClick={() => changePage(index + 1)}>
-                                {index + 1}
-                            </Button>
-                        ))
-                    }
-                </HStack>
+            {loading ? (<Loader />) : (
+                <>
+                    <RadioGroup value={currency} onChange={setCurrency} p="8">
+                        <HStack spacing={"4"}>
+                            <Radio value={"cad"}>CAD</Radio>
+                            <Radio value={"usd"}>USD</Radio>
+                            <Radio value={"eur"}>EUR</Radio>
+                        </HStack>
+                    </RadioGroup>
+                    <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+                        {
+                            coins.map((i) => (
+                                <CoinCard id={i.id} key={i.id}
+                                    name={i.name} img={i.image}
+                                    price={i.current_price} symbol={i.symbol}
+                                    url={i.url} currencySymbol={currencySymbol} />
+                            ))
+                        }
+                    </HStack>
+                    <HStack w={"full"} overflowX={"auto"} p={"8"}>
+                        {
+                            btns.map((item, index) => (
+                                <Button
+                                    bgColor={"blackAlpha.900"}
+                                    color={"white"}
+                                    onClick={() => changePage(index + 1)}>
+                                    {index + 1}
+                                </Button>
+                            ))
+                        }
+                    </HStack>
 
-            </>)}
-        </Container>
+                </>
+            )
+            }
+        </Container >
     )
 };
 
