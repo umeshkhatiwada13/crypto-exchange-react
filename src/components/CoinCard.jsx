@@ -1,13 +1,11 @@
 import {
-    Container,
     Heading,
-    HStack,
     Image,
     Text,
     VStack,
 } from "@chakra-ui/react";
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 
 const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "$" }) => (

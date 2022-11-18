@@ -30,7 +30,7 @@ const Chart = ({ array = [], currency, days }) => {
             new Date(array[index][0]).toLocaleDateString());
         prices.push(array[index][1]);
     }
-    
+
     return (
         <Line options={{
             responsive: true,

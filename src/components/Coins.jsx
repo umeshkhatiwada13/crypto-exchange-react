@@ -6,7 +6,7 @@ import {
     RadioGroup,
 } from "@chakra-ui/react";
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { BASE_URL } from '../index'
 import Loader from './Loader';
 import ErrorComponent from './ErrorComponent'
