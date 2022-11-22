@@ -4,8 +4,6 @@ import {
     Text,
     VStack,
 } from "@chakra-ui/react";
-import axios from 'axios';
-import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 
 const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "$" }) => (
@@ -30,7 +28,7 @@ const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "$" }) => (
                 objectFit={"contain"}
                 alt={"Exchange"} />
             <Heading size={"md"} noOfLines={1}>
-                {symbol}
+                {symbol ? symbol.toUpperCase() : ``}
             </Heading>
             <Text noOfLines={1}>{name}</Text>
             <Text noOfLines={1}>{price ? `${currencySymbol} ${price}` : "NA"}</Text>
