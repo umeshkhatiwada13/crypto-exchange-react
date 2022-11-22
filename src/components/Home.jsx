@@ -24,7 +24,7 @@ const Home = () => {
                 fontWeight={"thin"}
                 color={"whiteAlpha.700"}
                 mt={"-10"}
-            >My Crypto App </Text>
+            >Anaikot-Crypto</Text>
         </Box>
     )
 }
